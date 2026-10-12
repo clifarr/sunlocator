@@ -1,0 +1,57 @@
+name: Arduino CI
+
+on:
+  push:
+    branches: [main, master]
+  pull_request:
+  workflow_dispatch:
+
+jobs:
+  lint:
+    name: arduino-lint
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: arduino/arduino-lint-action@v1
+        with:
+          compliance: specification
+          library-manager: submit
+
+  compile:
+    name: Compile examples (${{ matrix.fqbn }})
+    runs-on: ubuntu-latest
+    strategy:
+      fail-fast: false
+      matrix:
+        include:
+          - fqbn: arduino:avr:uno
+            platform: arduino:avr
+            url: ""
+          - fqbn: esp8266:esp8266:nodemcuv2
+            platform: esp8266:esp8266
+            url: https://arduino.esp8266.com/stable/package_esp8266com_index.json
+          - fqbn: esp32:esp32:esp32
+            platform: esp32:esp32
+            url: https://espressif.github.io/arduino-esp32/package_esp32_index.json
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: arduino/setup-arduino-cli@v2
+
+      - name: Add board manager URLs
+        if: matrix.url != ''
+        run: |
+          arduino-cli config init
+          arduino-cli config add board_manager.additional_urls "${{ matrix.url }}"
+          arduino-cli core update-index
+
+      - uses: arduino/compile-sketches@v1
+        with:
+          fqbn: ${{ matrix.fqbn }}
+          platforms: |
+            - name: ${{ matrix.platform }}
+          libraries: |
+            - source-path: ./
+          sketch-paths: |
+            - examples
+          enable-deltas-report: false

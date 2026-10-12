@@ -1,0 +1,27 @@
+{
+  "name": "SunLocator",
+  "version": "1.0.0",
+  "description": "A lightweight solar calculator for sunrise, sunset and twilight times. Computes the local time at which the sun reaches any elevation angle for a given date and location.",
+  "keywords": "sun, sunrise, sunset, twilight, dawn, dusk, solar, astronomy, daylight, relay, lamp, timer",
+  "authors": [
+    {
+      "name": "Clifford Farrugia",
+      "email": "62100236+clifarr@users.noreply.github.com",
+      "maintainer": true
+    }
+  ],
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/clifarr/sunlocator.git"
+  },
+  "frameworks": "arduino",
+  "platforms": "*",
+  "headers": "SunLocator.h",
+  "examples": [
+    "examples/BasicSunTimes/BasicSunTimes.ino",
+    "examples/TwilightAngles/TwilightAngles.ino",
+    "examples/RelayControl/RelayControl.ino",
+    "examples/PolarNightAndDay/PolarNightAndDay.ino"
+  ]
+}

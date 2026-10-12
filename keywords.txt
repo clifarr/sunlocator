@@ -1,0 +1,48 @@
+#######################################
+# Syntax Coloring Map For SunLocator
+#######################################
+
+#######################################
+# Datatypes (KEYWORD1)
+#######################################
+
+SunLocator	KEYWORD1
+SunEvent	KEYWORD1
+
+#######################################
+# Methods and Functions (KEYWORD2)
+#######################################
+
+setLocation	KEYWORD2
+setLatitude	KEYWORD2
+setLongitude	KEYWORD2
+setTimeZone	KEYWORD2
+getLatitude	KEYWORD2
+getLongitude	KEYWORD2
+getTimeZone	KEYWORD2
+setDate	KEYWORD2
+getYear	KEYWORD2
+getDayOfYear	KEYWORD2
+rise	KEYWORD2
+set	KEYWORD2
+sunrise	KEYWORD2
+sunset	KEYWORD2
+civilDawn	KEYWORD2
+civilDusk	KEYWORD2
+nauticalDawn	KEYWORD2
+nauticalDusk	KEYWORD2
+astronomicalDawn	KEYWORD2
+astronomicalDusk	KEYWORD2
+solarNoon	KEYWORD2
+dayLength	KEYWORD2
+formatTime	KEYWORD2
+timeToString	KEYWORD2
+
+#######################################
+# Constants (LITERAL1)
+#######################################
+
+SUN_ELEVATION_OFFICIAL	LITERAL1
+SUN_ELEVATION_CIVIL	LITERAL1
+SUN_ELEVATION_NAUTICAL	LITERAL1
+SUN_ELEVATION_ASTRONOMICAL	LITERAL1
